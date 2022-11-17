@@ -211,12 +211,11 @@ export default {
       summaryText: "",
       qR: null,
       input: true,
-      demoQuestionnaire:{"resourceType":"Questionnaire", "id": "demo questionnaire","title":"Demo Questionnaire","status":"active","description":"This a short demo questionnaire showcasing different types of questions","publisher":"MOLIT Institut gGmbH","item":[{"linkId":"1","prefix":"1.","text":"Please enter your age","type":"integer","required":true},{"linkId":"2","prefix":"2.","text":"Do you have any physical pain","type":"boolean","required":true},{"linkId":"3","text":"Questions for users with physical pain over the age of 60","type":"group","enableWhen":[{"question":"2","operator":"=","answerBoolean":true}],"item":[{"linkId":"3.1","prefix":"3.1.","text":"Do you find it difficult to take a long walk?","type":"choice","answerValueSet":"http://fhir.molit.eu/fhir/ValueSet/demo-4-answers"},{"linkId":"3.2","prefix":"3.2.","text":"Do you have to lie in bed or sit in an armchair during the day?","type":"choice","answerValueSet":"http://fhir.molit.eu/fhir/ValueSet/demo-4-answers"},{"linkId":"3.3","prefix":"3.3.","text":"Do you need help eating, dressing, washing or using the toilet?","type":"choice","answerValueSet":"http://fhir.molit.eu/fhir/ValueSet/demo-4-answers"}]}]}
+      demoQuestionnaire:{"resourceType":"Questionnaire","url":"http://fhir.molit.eu/fhir/Questionnaire/demo-questionnaire", "id": "demo-questionnaire","title":"Demo Questionnaire","status":"active","description":"This a short demo questionnaire showcasing different types of questions","publisher":"MOLIT Institut gGmbH","item":[{"linkId":"1","prefix":"1.","text":"Please enter your age","type":"integer","required":true},{"linkId":"2","prefix":"2.","text":"Do you have any physical pain","type":"boolean","required":true},{"linkId":"3","text":"Questions for users with physical pain over the age of 60","type":"group","enableWhen":[{"question":"2","operator":"=","answerBoolean":true}],"item":[{"linkId":"3.1","prefix":"3.1.","text":"Do you find it difficult to take a long walk?","type":"choice","answerValueSet":"http://fhir.molit.eu/fhir/ValueSet/demo-4-answers"},{"linkId":"3.2","prefix":"3.2.","text":"Do you have to lie in bed or sit in an armchair during the day?","type":"choice","answerValueSet":"http://fhir.molit.eu/fhir/ValueSet/demo-4-answers"},{"linkId":"3.3","prefix":"3.3.","text":"Do you need help eating, dressing, washing or using the toilet?","type":"choice","answerValueSet":"http://fhir.molit.eu/fhir/ValueSet/demo-4-answers"}]}]}
     };
   },
   methods: {
     restartQuestionnaire() {
-      console.log("restart")
       this.showQuestionnaire = false;
       setTimeout(() => {
         this.showQuestionnaire = true;
@@ -227,21 +226,16 @@ export default {
       this.qR = object;
     }
   },
-  async created() {
-    console.log("renderer started")
-  },
 };
 </script>
 <style>
 .viewer {
-  /* width: 600px; */
   height: 100vh;
   overflow-y: auto;
 }
 
 .output {
   overflow-y: auto;
-  /* overflow-x: auto; */
   white-space: pre-wrap;
   word-wrap: break-word;
   height: 100vh;

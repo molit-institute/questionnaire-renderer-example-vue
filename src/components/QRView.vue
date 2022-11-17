@@ -40,7 +40,7 @@ export default {
   data() {
     return {
       danger: "#F32C2C",
-      vasSelectedValueLabel: "IHRE GESUNDHEIT HEUTE =",
+      vasSelectedValueLabel: "YOUR HEALTH TODAY =",
     };
   },
   props: {
