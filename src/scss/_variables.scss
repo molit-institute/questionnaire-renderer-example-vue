@@ -1,0 +1,15 @@
+$molit-blue: #004A6B;
+$molit-light-blue: #298BBE;
+$molit-green: #379880;
+$molit-light-green: #48CFAD;
+// $molit-light-green: #49a079;
+$molit-dark-grey: #6A6A6A;
+$molit-light-grey: #6A6A6A;
+$molit-red: #BF0023;
+$molit-danger: #ff4136;
+
+$theme-colors: (
+  "primary": $molit-blue,
+  "secondary": rgba(0, 0, 0, 0.6),
+  "danger": $molit-danger
+);
