@@ -11,7 +11,7 @@
               :informationPageText="informationPageText" :enableInformationPage="enableInformationPage"
               :trademarkText="trademarkText" :enableGroupDescription="enableGroupDescription"
               :enableFullQuestionnaireResponse="enableFullQuestionnaireResponse" :enableReturn="enableReturn"
-              :enableSummary="enableSummary" :summaryText="summaryText"
+              :enableSummary="enableSummary" :summaryText="summaryText" :questionnaireUrl="questionnaireUrl"
               @newQuestionnaireResponse="newQuestionnaireResponse($event)" />
           </div>
         </b-col>
@@ -83,6 +83,14 @@
               <input type="textarea" v-model="fhirBaseUrl">
             </b-col>
           </b-row>
+          <!-- <b-row class="setting-item">
+            <b-col>
+              Questionnaire-Url to use your own questionnaire
+            </b-col>
+            <b-col class="settings-select">
+              <input type="textarea" v-model="questionnaireUrl">
+            </b-col>
+          </b-row> -->
           <b-row class="setting-item">
             <b-col>
               Enable sending questionnaireResponses to fhir-server
@@ -166,7 +174,7 @@
 
         </div>
         <div class="button-container">
-          <b-button @click="showQuestionnaire = true; started = true" v-if="!showQuestionnaire && !started"
+          <b-button @click="startQuestionnaire()" v-if="!showQuestionnaire && !started"
             class="btn btn-primary">Start
           </b-button>
           <b-button @click="restartQuestionnaire()" v-if="showQuestionnaire || started" class="btn btn-primary">Restart
@@ -193,6 +201,7 @@ export default {
       started: false,
       showQuestionnaire: false,
       fhirBaseUrl: "https://fhir.molit.eu/fhir",
+      questionnaireUrl: null,
       locale: "de",
       mode: "stepper-questionnaire",
       informationPageText: "",
@@ -215,6 +224,14 @@ export default {
     };
   },
   methods: {
+    startQuestionnaire(){
+      this.showQuestionnaire = true; 
+      this.started = true;
+      if(this.questionnaireUrl){
+        console.log("questionnaireURl:",this.questionnaireUrl)
+        this.demoQuestionnaire = null;
+      }
+    },
     restartQuestionnaire() {
       this.showQuestionnaire = false;
       setTimeout(() => {

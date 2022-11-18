@@ -24,6 +24,7 @@
       :vasVertical.prop="true"
       :vasShowSelectedValue.prop="true"
       :vasSelectedValueLabel.prop="vasSelectedValueLabel"
+      :questionnaireUrl="questionnaireUrl"
       @addRemarks="emitRemarksEvent()"
       @exit="onExit()"
       @finished="onFinished($event.detail)"
@@ -115,6 +116,10 @@ export default {
     summaryText: {
       type: String,
       default: ""
+    },
+    questionnaireUrl: {
+      type: String,
+      default: null
     }
   },
   computed: {
