@@ -1,5 +1,7 @@
 # questionnaire-renderer-viewer
 
+This is a demo-project for the questionnaire renderer.
+
 ## Project setup
 ```
 npm install
