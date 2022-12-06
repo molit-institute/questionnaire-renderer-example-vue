@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@molit/fhir-api": "^1.0.42",
-    "@molit/questionnaire-renderer": "^1.0.13",
+    "@molit/questionnaire-renderer": "^1.0.15",
     "bootstrap-vue": "^2.22.0",
     "core-js": "^3.24.1",
     "vue": "^2.7.8",
