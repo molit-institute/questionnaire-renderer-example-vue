@@ -17,14 +17,14 @@
         </b-col>
         <b-col class="output" v-if="showQuestionnaire">
           <div style="padding: 20px 0;">
-            <vue-toggles :value="input" @click="input = !input" width="80" height="30" checkedText="Input" uncheckedText="Output"
-              checkedBg="#319129"></vue-toggles>
+            <vue-toggles :value="input" @click="input = !input" width="80" height="30" checkedText="Input"
+              uncheckedText="Output" checkedBg="#319129"></vue-toggles>
           </div>
           <div v-if="input">
             <h5 style="padding: 20px 0">Questionnaire</h5>
             <br>
             <pre>
-              {{demoQuestionnaire}}
+              {{ demoQuestionnaire }}
             </pre>
           </div>
           <div v-if="!input">
@@ -174,8 +174,7 @@
 
         </div>
         <div class="button-container">
-          <b-button @click="startQuestionnaire()" v-if="!showQuestionnaire && !started"
-            class="btn btn-primary">Start
+          <b-button @click="startQuestionnaire()" v-if="!showQuestionnaire && !started" class="btn btn-primary">Start
           </b-button>
           <b-button @click="restartQuestionnaire()" v-if="showQuestionnaire || started" class="btn btn-primary">Restart
           </b-button>
@@ -222,10 +221,10 @@ export default {
       input: true,
       demoQuestionnaire:{"resourceType":"Questionnaire","url":"http://fhir.molit.eu/fhir/Questionnaire/demo-questionnaire", "id": "demo-questionnaire","title":"Demo Questionnaire","status":"active","description":"This a short demo questionnaire showcasing different types of questions","publisher":"MOLIT Institut gGmbH","item":[{"linkId":"1","prefix":"1.","text":"Please enter your age","type":"integer","required":true},{"linkId":"2","prefix":"2.","text":"Do you have any physical pain","type":"boolean","required":true},{"linkId":"3","text":"Questions for users with physical pain over the age of 60","type":"group","required":false,"enableWhen":[{"question":"2","operator":"=","answerBoolean":true}],"item":[{"linkId":"3.1","prefix":"3.1.","text":"Do you find it difficult to take a long walk?","type":"choice","answerValueSet":"http://fhir.molit.eu/fhir/ValueSet/demo-4-answers"},{"linkId":"3.2","prefix":"3.2.","text":"Do you have to lie in bed or sit in an armchair during the day?","type":"choice","answerValueSet":"http://fhir.molit.eu/fhir/ValueSet/demo-4-answers"},{"linkId":"3.3","prefix":"3.3.","text":"Do you need help eating, dressing, washing or using the toilet?","type":"choice","answerValueSet":"http://fhir.molit.eu/fhir/ValueSet/demo-4-answers"}]}]}
     };
-  },
+    },
   methods: {
     startQuestionnaire(){
-      this.showQuestionnaire = true; 
+      this.showQuestionnaire = true;
       this.started = true;
       if(this.questionnaireUrl){
         console.log("questionnaireURl:",this.questionnaireUrl)
